@@ -1,0 +1,34 @@
+service: aws-lambda-hello-world
+
+frameworkVersion: ">=2.50.0 <=2.72.3"
+
+provider:
+  name: aws
+  profile: default
+  runtime: go1.x
+  region: us-east-1
+  stage: local
+  lambdaHashingVersion: '20201221'
+
+custom:
+  defaultStage: local
+  profile: default
+  localstack:
+    debug: true
+    stages: [local]
+    autostart: true
+
+functions:
+  aws-lambda-hello-world:
+    name: ${self:service}-${self:provider.stage}-helloWorld
+    handler: handler
+    events:
+      - http:
+          path: /
+          method: get
+
+plugins:
+  - serverless-localstack
+
+resources:
+  - ${file(lambda-sg-local.yml)}

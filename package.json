@@ -1,0 +1,18 @@
+{
+  "name": "aws-lambda-hello-world",
+  "version": "1.0.0",
+  "description": "AWS Lambda function that logs 'Hello, World!' to the console",
+  "main": "src/handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "2.100.0"
+  },
+  "devDependencies": {
+    "serverless-localstack": "1.2.1",
+    "serverless": "2.72.3"
+  }
+}
